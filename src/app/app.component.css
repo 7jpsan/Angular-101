@@ -1,0 +1,22 @@
+img{
+    width: 100px;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+}
+
+.login img:hover{
+    cursor: pointer;
+}
+
+.login span{
+    margin: 1em;
+}
+
+.login label:hover{
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
