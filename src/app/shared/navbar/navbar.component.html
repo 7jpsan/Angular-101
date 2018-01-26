@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor="let navItem of navItems; let i = index"
+  (click)="onSelect(i)" [class.active]="activeIndex === i">
+  <fa *ngIf="navItem.icon" name="{{navItem.icon}}" size="lg"></fa>
+  <a >{{ navItem.title }}</a>
+</li>
+</ul>
