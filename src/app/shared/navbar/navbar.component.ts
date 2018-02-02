@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { makeDecorator } from '@angular/core/src/util/decorators';
 
 interface NavItem{
   title: string,
-  icon: string
+  icon: string,
+  route: string
 }
 
 @Component({
@@ -14,14 +16,21 @@ export class NavbarComponent implements OnInit {
 
   navItems = [
     {
-      title: "Home"}, 
-    {
-      title: "Albums"}, 
-    { 
-      title: "Playlists"
+      title: "Home",
+      route: "home"
     }, 
     {
-      title: "Profile", icon: "user"
+      title: "Albums",
+      route: "albums"
+    }, 
+    { 
+      title: "Playlists",
+      route: "playlists"
+    }, 
+    {
+      title: "Profile", 
+      icon: "user",
+      route: "profile"
     }
   ];
   

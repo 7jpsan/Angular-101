@@ -11,10 +11,12 @@ import { HomeModule } from './home/home.module';
 
 import { CookieService } from 'ngx-cookie-service';
 import { LoginGuard } from './login.guard';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent
   ],
   imports: [
     HttpClientModule,

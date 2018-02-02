@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginGuard } from './login.guard';
 import { AuthGuard } from './spotify-auth/auth.guard';
 import { SpotifyAuthComponent } from './spotify-auth/spotify-auth/spotify-auth.component';
+import { ProfileComponent } from './profile';
 
 const routes: Routes = [
   {
@@ -24,6 +25,11 @@ const routes: Routes = [
     canLoad: [ LoginGuard ],
     //canActivateChild: [ LoginGuard ],
     loadChildren: 'app/home/home.module#HomeModule' 
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [ LoginGuard ]
   },
   {
     path: '**',
