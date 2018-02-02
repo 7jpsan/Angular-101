@@ -6,13 +6,17 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
+import { NavigationItemsService } from './navigation-items.service';
+import { NavitemComponent } from './navbar/navitem.component';
+
 @NgModule({
   imports: [
     AngularFontAwesomeModule,
     RouterModule,
     CommonModule
   ],
-  declarations: [NavbarComponent],
-  exports: [NavbarComponent]
+  declarations: [ NavbarComponent, NavitemComponent],
+  exports: [ NavbarComponent, NavitemComponent],
+  providers: [NavigationItemsService]
 })
 export class SharedModule { }

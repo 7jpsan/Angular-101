@@ -1,7 +1,5 @@
 <ul>
-  <li *ngFor="let navItem of navItems; let i = index"
-  (click)="onSelect(i)" routerLink="{{navItem.route}}" routerLinkActive="active">
-  <fa *ngIf="navItem.icon" name="{{navItem.icon}}" size="lg"></fa>
-  <a >{{ navItem.title }}</a>
-</li>
+  <li *ngFor="let navItem of navItems">
+    <app-navitem [navItem]="navItem" ></app-navitem>
+  </li>
 </ul>

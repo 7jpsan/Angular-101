@@ -1,10 +1,4 @@
-<app-navbar></app-navbar>
-<div style="text-align:center">
-  <h1>
-    Welcome {{ user.name }}!
-  </h1>
-  <span *ngIf="user.name"> Looking forward for: {{ user.birthday }}?</span>
-</div>
+<app-navbar [navItems]="navService.getNavigationItems()"></app-navbar>
 
 <div *ngIf="!user.name" class="login">
   <span>Login with</span>
@@ -13,7 +7,6 @@
 <div class="login" *ngIf="user.name" >
   <label (click)="logout($event)">Logout</label>
 </div>
-<h2>Actions </h2>
 <router-outlet></router-outlet>
 
 

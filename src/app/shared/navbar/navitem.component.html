@@ -1,0 +1,11 @@
+<li *ngIf="navItem.children; else elseBlock">
+    <fa *ngIf="navItem.icon" name="{{navItem.icon}}" size="lg"></fa>
+    <a *ngIf="navItem.title">{{ navItem.title }}</a>
+    <app-navbar class="submenu" [navItems]="navItem.children"></app-navbar>
+</li>
+<ng-template #elseBlock>
+  <li routerLink="{{navItem.route}}" routerLinkActive="active">
+      <fa *ngIf="navItem.icon" name="{{navItem.icon}}" size="lg"></fa>
+      <a *ngIf="navItem.title">{{ navItem.title }}</a>
+  </li>
+</ng-template>

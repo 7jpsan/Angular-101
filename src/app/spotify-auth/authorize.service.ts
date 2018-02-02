@@ -15,7 +15,7 @@ export class AuthorizeService {
     redirect_uri: "http://localhost:4200/authorized",  // My URL
     state: "somerandomstuff",
     show_dialog: false,
-    scope: 'user-read-email user-read-birthdate'
+    scope: 'user-read-email user-read-birthdate user-read-private'
 
   } as SpotifyAuthRequestParams;
 

@@ -16,7 +16,8 @@ interface SpotifyUser {
   display_name: string;
   email: string;
   id: string;
-  birthdate: string;  
+  birthdate: string;
+  product: string;  
 }
 
 @Injectable()
@@ -49,9 +50,12 @@ export class LoginService {
       tap(response => console.log(`tried`, response)),
       catchError(this.handleError('getSelf', []))
     ).subscribe((user: SpotifyUser) => {
+      console.log(user);
       this.user.isLoggedIn = true;
       this.user.name = user.display_name || user.id || user.email;
       this.user.birthday = user.birthdate;
+      this.user.email = user.email;
+      this.user.product = user.product;
       this.setUserCookie(this.user);
       this.user$.next(this.user);
     });

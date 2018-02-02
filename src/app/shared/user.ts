@@ -4,7 +4,9 @@ export class User {
     public name: string = '';
     public token: string = '';
     public birthday: string = '';
-    
+    public email: string = '';
+    public product: string = '';
+
     private loggedIn: boolean = false;
 
     public constructor(user: User){
@@ -17,6 +19,10 @@ export class User {
 
     public set isLoggedIn(value: boolean){
         this.loggedIn = value;
+    }
+
+    public get isPremium(): boolean{
+        return this.product === 'premium';
     }
 
 }

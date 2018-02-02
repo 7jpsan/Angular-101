@@ -1,4 +1,10 @@
-ul {
+/* <ul>
+  <li *ngFor="let navItem of navItems">
+    <app-navitem [navItem]="navItem" ></app-navitem>
+  </li>
+</ul> */
+
+:host ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -6,7 +12,7 @@ ul {
     background-color: #555;
 }
 
-li {
+:host ul li {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -14,35 +20,6 @@ li {
     cursor: pointer;
 }
 
-li:focus{
-    outline: none;
-}
-
-li:last-child {
+:host ul li:last-child {
     float: right;
-}
-
-li fa{
-    color: white;
-    padding-left: 1rem;
-}
-
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:focus{
-    outline: none;
-}
-
-li:hover:not(.active) {
-    background-color: #111;
-}
-
-.active {
-background-color:#4CAF50;
 }
