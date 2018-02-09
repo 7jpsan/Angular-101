@@ -2,19 +2,16 @@ app-navbar{
     display: none;
 }
 
-li:hover app-navbar{
-    position: fixed;
-    display: block;
-    right: 0.5rem;
+:host:hover .submenu{
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    display: inherit;
 } 
-
+ 
 li {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    float: left;
-    cursor: pointer;
-    padding: 0 1rem;
+    padding: 1rem;
 }
 
 li:focus{
@@ -23,15 +20,13 @@ li:focus{
 
 li fa{
     color: white;
-    /* padding-left: 1rem;
-    padding-right: 1rem; */
+    margin-right: 0.5rem;
 }
 
 li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 0 16px 0;
     text-decoration: none;
 }
 
@@ -44,5 +39,5 @@ li:hover:not(.active) {
 }
 
 .active {
-background-color:#4CAF50;
+    background-color:#4CAF50;
 }

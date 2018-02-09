@@ -30,9 +30,7 @@ export class AppComponent implements OnInit {
   }
 
   public login(): void{
-    //if(!this.loginServ.isLoggedIn){
       this.loginServ.login();
-    //}
   } 
 
 }

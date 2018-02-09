@@ -2,7 +2,9 @@
 
 <div *ngIf="!user.name" class="login">
   <span>Login with</span>
-  <img src="assets/spotify.png" (click)="login($event)"/>
+  <div class="img-container">
+    <img src="assets/spotify.png" (click)="login($event)"/>
+  </div>
 </div>
 <div class="login" *ngIf="user.name" >
   <label (click)="logout($event)">Logout</label>

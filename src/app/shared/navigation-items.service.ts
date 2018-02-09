@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 
+//import { LoginService } from '../spotify-auth/login.service';
+
 export interface NavItem {
   title: string,
   icon: string,
@@ -10,28 +12,27 @@ export interface NavItem {
 @Injectable()
 export class NavigationItemsService {
 
-
   private static NAV_ITEMS: NavItem[] = [
     {
       title: "Home",
+      icon: "home",
       route: "home"
     } as NavItem,
     {
       title: "Albums",
+      icon: "music",
       route: "albums"
     } as NavItem,
     {
       title: "Playlists",
+      icon: "headphones",
       route: "playlists"
     } as NavItem,
     {
       icon: "user",
-      title: "User",
+      title: "Profile",
+      route: "profile",
       children: [
-        {
-          title: "Profile",
-          route: "profile"
-        } as NavItem,
         {
           title: "Logout",
           route: "logout",
@@ -41,9 +42,10 @@ export class NavigationItemsService {
     } as NavItem
   ];
 
-  constructor() { }
+  // constructor(private loginSvc: LoginService) { }
 
   public getNavigationItems(): NavItem[] {
+
     return NavigationItemsService.NAV_ITEMS;
   }
 

@@ -9,6 +9,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NavigationItemsService } from './navigation-items.service';
 import { NavitemComponent } from './navbar/navitem.component';
 
+import { SpotifyAuthModule } from '../spotify-auth/spotify-auth.module';
+
 @NgModule({
   imports: [
     AngularFontAwesomeModule,
