@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SpotifyAuthModule } from './spotify-auth/spotify-auth.module';
 import { SharedModule } from './shared/shared.module';
 import { PublicModule } from './public/public.module';
 import { HomeModule } from './home/home.module';
@@ -22,7 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
     HttpClientModule,
     BrowserModule,
     SharedModule,
-    SpotifyAuthModule.forRoot(),
     AppRoutingModule,
     PublicModule,
     HomeModule

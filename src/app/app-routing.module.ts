@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginGuard } from './login.guard';
-import { AuthGuard } from './spotify-auth/auth.guard';
-import { SpotifyAuthComponent } from './spotify-auth/spotify-auth/spotify-auth.component';
+import { AuthGuard } from './shared/spotify-auth/auth.guard';
+import { SpotifyAuthComponent } from './shared/spotify-auth/spotify-auth/spotify-auth.component';
 import { ProfileComponent } from './profile';
 
 const routes: Routes = [
@@ -30,6 +30,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [ LoginGuard ]
+  },
+  {
+    path: 'logout',
+    redirectTo: 'home'
   },
   {
     path: '**',

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './spotify-auth/login.service';
-import { User } from './shared/index';
+import { LoginService } from './shared/spotify-auth/login.service';
+import { User } from './shared';
 
-import { NavigationItemsService } from "./shared/navigation-items.service";
+import { NavigationItemsService } from "./shared/services/navigation-items.service";
 
 @Component({
   selector: 'app-root',
@@ -22,11 +22,6 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(){
-    this.navService.getNavigationItems();
-  }
-
-  public logout(): void{
-    this.loginServ.logout();
   }
 
   public login(): void{

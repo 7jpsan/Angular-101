@@ -1,10 +1,10 @@
-<li *ngIf="navItem.children; else elseBlock" routerLink="{{navItem.route}}" routerLinkActive="active" (click)="$event.stopPropagation()">
+<li *ngIf="navItem.children; else elseBlock" routerLink="{{navItem.route}}" routerLinkActive="active" (click)="onNavItemClick($event)">
     <fa *ngIf="navItem.icon" name="{{navItem.icon}}" size="lg"></fa>
     <a *ngIf="navItem.title">{{ navItem.title }}</a>
     <app-navbar class="submenu" [navItems]="navItem.children"></app-navbar>
 </li>
 <ng-template #elseBlock>
-  <li routerLink="{{navItem.route}}" routerLinkActive="active" (click)="$event.stopPropagation()">
+  <li routerLink="{{navItem.route}}" routerLinkActive="active" (click)="onNavItemClick($event)">
       <fa *ngIf="navItem.icon" name="{{navItem.icon}}" size="lg"></fa>
       <a *ngIf="navItem.title">{{ navItem.title }}</a>
   </li>

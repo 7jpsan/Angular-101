@@ -6,19 +6,20 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
-import { NavigationItemsService } from './navigation-items.service';
+import { NavigationItemsService } from './services';
 import { NavitemComponent } from './navbar/navitem.component';
 
-import { SpotifyAuthModule } from '../spotify-auth/spotify-auth.module';
+import { SpotifyAuthModule } from './spotify-auth/spotify-auth.module';
 
 @NgModule({
   imports: [
     AngularFontAwesomeModule,
     RouterModule,
-    CommonModule
+    CommonModule,
+    SpotifyAuthModule.forRoot()
   ],
   declarations: [ NavbarComponent, NavitemComponent],
-  exports: [ NavbarComponent, NavitemComponent],
+  exports: [ NavbarComponent, NavitemComponent, SpotifyAuthModule],
   providers: [NavigationItemsService]
 })
 export class SharedModule { }

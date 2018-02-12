@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../shared/user';
-import { LoginService } from '../spotify-auth';
+import { LoginService } from '../shared/spotify-auth';
 
 import 'rxjs/add/operator/take';
 

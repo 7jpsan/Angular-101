@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User } from '../shared/index';
+import { User } from '../';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { HttpClient } from '@angular/common/http';
@@ -7,7 +7,7 @@ import { catchError, map, tap } from 'rxjs/operators';
 import { of } from 'rxjs/observable/of';
 
 import { AuthorizeService } from './authorize.service';
-import { SpotifyAuthResponse } from './interfaces/index';
+import { SpotifyAuthResponse } from './interfaces';
 import { HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';

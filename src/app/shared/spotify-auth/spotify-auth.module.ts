@@ -10,7 +10,6 @@ import { SpotifyAuthComponent } from './spotify-auth/spotify-auth.component';
 @NgModule({
   imports: [
     CommonModule,
-    //SpotifyAuthRoutingModule
   ],
   providers: [
   ],

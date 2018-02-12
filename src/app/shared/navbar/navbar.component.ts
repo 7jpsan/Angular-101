@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { makeDecorator } from '@angular/core/src/util/decorators';
 
-import { NavItem } from '../';
+import { NavItem } from '../services';
 
 @Component({
   selector: 'app-navbar',

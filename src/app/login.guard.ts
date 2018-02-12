@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { CanActivate, Route, CanLoad, ActivatedRouteSnapshot, ActivatedRoute, RouterStateSnapshot, CanActivateChild } from '@angular/router';
-import { LoginService } from './spotify-auth/login.service';
+import { LoginService } from './shared/spotify-auth/login.service';
 
 @Injectable()
 export class LoginGuard implements CanLoad, CanActivateChild, CanActivate{
