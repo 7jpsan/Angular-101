@@ -24,8 +24,6 @@ export class AppComponent implements OnInit {
   public ngOnInit(){
   }
 
-  public login(): void{
-      this.loginServ.login();
-  } 
+
 
 }

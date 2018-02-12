@@ -1,12 +1,5 @@
 <app-navbar [navItems]="navService.getNavigationItemsStream() | async"></app-navbar>
-
-<!-- Transform this into a component -->
-<div *ngIf="!user.name" class="login">
-  <span>Login with</span>
-  <div class="img-container">
-    <img src="assets/spotify.png" (click)="login($event)"/>
-  </div>
-</div>
+<app-login *ngIf="!user.name" class="login"></app-login>
 <router-outlet></router-outlet>
 
 
