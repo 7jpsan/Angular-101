@@ -14,7 +14,7 @@ export class AuthorizeService {
     response_type: "token",
     redirect_uri: "http://localhost:4200/authorized",  // My URL
     state: "somerandomstuff",
-    show_dialog: false,
+    show_dialog: true,
     scope: 'user-read-email user-read-birthdate user-read-private'
 
   } as SpotifyAuthRequestParams;

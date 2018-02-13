@@ -13,13 +13,13 @@ import { SpotifyAuthModule } from './spotify-auth/spotify-auth.module';
 
 @NgModule({
   imports: [
-    AngularFontAwesomeModule,
     RouterModule,
     CommonModule,
-    SpotifyAuthModule.forRoot()
+    SpotifyAuthModule.forRoot(),
+    AngularFontAwesomeModule
   ],
   declarations: [ NavbarComponent, NavitemComponent],
-  exports: [ NavbarComponent, NavitemComponent, SpotifyAuthModule],
+  exports: [ NavbarComponent, NavitemComponent, SpotifyAuthModule, AngularFontAwesomeModule],
   providers: [NavigationItemsService]
 })
 export class SharedModule { }

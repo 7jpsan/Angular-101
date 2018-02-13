@@ -6,6 +6,7 @@ export class User {
     public birthday: string = '';
     public email: string = '';
     public product: string = '';
+    public profilePic: string = '';
 
     private loggedIn: boolean = false;
 

@@ -17,7 +17,8 @@ interface SpotifyUser {
   email: string;
   id: string;
   birthdate: string;
-  product: string;  
+  product: string;
+  images: any[]
 }
 
 @Injectable()
@@ -56,6 +57,7 @@ export class LoginService {
       this.user.birthday = user.birthdate;
       this.user.email = user.email;
       this.user.product = user.product;
+      this.user.profilePic = user.images? user.images[0].url : null;
       this.setUserCookie(this.user);
       this.user$.next(this.user);
     });
