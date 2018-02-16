@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient,  } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs/observable';
 import { of } from 'rxjs/observable/of';
@@ -20,22 +20,22 @@ export class AuthorizeService {
   } as SpotifyAuthRequestParams;
 
   private requestAuthUrl = 'https://accounts.spotify.com/authorize';
+  private token: string = null;
 
   constructor(private http: HttpClient) { }
 
   public openSpotifyAuthUrl(){
-    /* this.http.get(this.buildAuthUrl()).pipe(
-      tap(response => console.log(`tried`, response)),
-      catchError(this.handleError('getHeroes', []))
-    ).subscribe(); */
+    
     window.location.href = this.buildAuthUrl();
   }
 
-  public getAuthHeader(): any{
-    return {};
+  public setAuthToken(token: string): void{
+    this.token = token;
   }
 
-  // TODO Pass current Route as Redirection.
+  public get authHeader(): {[name: string]: string}{
+    return {Authorization: `Bearer ${this.token}`};
+  }
 
   private buildAuthUrl(): string{
 

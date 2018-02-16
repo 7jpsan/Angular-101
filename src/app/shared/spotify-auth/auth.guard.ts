@@ -29,7 +29,6 @@ export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
     const response = this.extractApiResponse(next.fragment);
     console.log(response);
     return this.loginSvc.updateToken(response);
-    //return !!this.extractApiResponse(next.fragment);
   }
 
   private extractApiResponse(fragment: string): SpotifyAuthResponse{
