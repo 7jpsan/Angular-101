@@ -10,6 +10,6 @@
         <label>{{ user.name }}</label>
         <label>{{ user.email }}</label>
         <label>{{ user.birthday | date:'dd.MM.yyyy'}}</label>
-        <fa name="star" size="lg"></fa>
+        <fa *ngIf="user.isPremium" name="star" size="lg"></fa>
     </div>
 </div>

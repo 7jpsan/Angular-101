@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     padding: 1rem;
+    width: 50%;
 }
 
 fa{
@@ -46,4 +47,16 @@ hr{
     flex-direction: column;
     text-align: center;
     align-self: center;
+ }
+
+@media all and (max-width: 800px) {
+    :host{
+        width: 75%;
+    }
+}
+
+ @media all and (max-width: 600px) {
+    :host{
+        width: auto;
+    }
  }
