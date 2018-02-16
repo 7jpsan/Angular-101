@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from './shared/spotify-auth/login.service';
 import { User } from './shared';
 
-import { NavigationItemsService } from "./shared/services/navigation-items.service";
+import { NavigationItemsService } from "./navbar/services/navigation-items.service";
 
 @Component({
   selector: 'app-root',

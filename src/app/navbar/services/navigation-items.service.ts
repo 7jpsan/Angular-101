@@ -4,7 +4,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import 'rxjs/add/observable/of'
 
 import { NavItem } from './nav-item.i';
-import { LoginService } from '../spotify-auth';
+import { LoginService } from '../../shared/spotify-auth';
+
 
 @Injectable()
 export class NavigationItemsService {

@@ -11,6 +11,7 @@ import { HomeModule } from './home/home.module';
 import { CookieService } from 'ngx-cookie-service';
 import { LoginGuard } from './login.guard';
 import { ProfileComponent } from './profile/profile.component';
+import { NavbarModule } from './navbar/navbar.module';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
   imports: [
     HttpClientModule,
     BrowserModule,
+    NavbarModule,
     SharedModule,
     AppRoutingModule,
     PublicModule,
