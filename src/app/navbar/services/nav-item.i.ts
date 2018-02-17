@@ -4,5 +4,6 @@ export interface NavItem {
     route: string
     children?: NavItem[],
     loginRequired?: boolean,
-    action?: (...args:any[]) => void
+    action?: (...args:any[]) => void,
+    state: string
   }

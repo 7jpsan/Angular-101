@@ -1,10 +1,32 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavItem } from './services';
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
+
 @Component({
   selector: 'app-navitem',
   templateUrl: './navitem.component.html',
-  styleUrls: ['./navitem.component.css']
+  styleUrls: ['./navitem.component.css'],
+  animations: [
+    trigger('menuState', [
+      state('inactive', style({
+        transform: 'scale(1)',
+        zIndex: 1
+      })),
+      state('active',   style({
+        transform: 'scale(1.05)',
+        zIndex: 10
+      })),
+      transition('inactive => active', animate('100ms ease-in')),
+      transition('active => inactive', animate('100ms ease-out'))
+    ])
+  ]
 })
 export class NavitemComponent implements OnInit {
 
