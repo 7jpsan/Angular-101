@@ -49,7 +49,7 @@ export class NavigationItemsService {
   constructor(private loginSvc: LoginService) {
     this.navItem$ = new BehaviorSubject(this.NAV_ITEMS.filter(x => !x.loginRequired));
 
-    this.loginSvc.getUser()
+    this.loginSvc.getUserStream()
     .subscribe(x => {
       if(!x.isLoggedIn){
         this.navItem$.next(this.NAV_ITEMS.filter(x => !x.loginRequired));

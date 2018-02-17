@@ -17,8 +17,7 @@ export class ProfileComponent implements OnInit {
   constructor(private loginSvc: LoginService) { }
 
   public ngOnInit() {
-    this.loginSvc.getUser().take(1).subscribe((u: User) => {
-      console.log(u);
+    this.loginSvc.getUserStream().take(1).subscribe((u: User) => {
       this.user = u
     });
   }

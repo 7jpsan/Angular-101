@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
   private user: User = new User({} as User);
 
   public constructor(private loginServ: LoginService, private navService: NavigationItemsService){
-    this.loginServ.getUser().subscribe((u) => {
-      this.user = u
+    this.loginServ.getUserStream().subscribe((u) => {
+      this.user = u;
     });
   }
 

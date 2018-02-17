@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/observable';
 import { of } from 'rxjs/observable/of';
 
 import { SpotifyAuthRequestParams } from './interfaces';
+import { SpotifyAuthResponse } from './interfaces';
 
 @Injectable()
 export class AuthorizeService {
@@ -29,12 +30,17 @@ export class AuthorizeService {
     window.location.href = this.buildAuthUrl();
   }
 
-  public setAuthToken(token: string): void{
-    this.token = token;
+  public setAuthToken(spotifyResponse: SpotifyAuthResponse): boolean{
+    if (!!spotifyResponse && !!spotifyResponse.access_token) {
+      this.token = spotifyResponse.access_token;
+    }else{
+      this.token = null;
+    }
+    return !!this.token
   }
 
   public get authHeader(): {[name: string]: string}{
-    return {Authorization: `Bearer ${this.token}`};
+    return this.token ? { Authorization: `Bearer ${this.token}` } : null;
   }
 
   private buildAuthUrl(): string{

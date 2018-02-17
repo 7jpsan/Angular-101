@@ -6,11 +6,12 @@ import { SpotifyAuthResponse } from './interfaces';
 import { LoginService } from './login.service';
 
 import * as _ from 'lodash';
+import { AuthorizeService } from './';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
 
-  constructor(private loginSvc: LoginService){}
+  constructor(private authService: AuthorizeService, private loginSvc: LoginService){}
   
   // Maybe
   public canActivate(
@@ -20,15 +21,14 @@ export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
 
   // Always allow the request to come thru
   public canLoad(route: Route): boolean {
-    
     return true;
   }
 
-  // Maybe
+  // This gets called when the callback is invoked. Token is part of Auth
   public canActivateChild(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) : boolean{
     const response = this.extractApiResponse(next.fragment);
-    console.log(response);
-    return this.loginSvc.updateToken(response);
+    this.authService.setAuthToken(response);
+    return this.loginSvc.update();
   }
 
   private extractApiResponse(fragment: string): SpotifyAuthResponse{

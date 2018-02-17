@@ -12,7 +12,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     RouterModule,
     CommonModule,
     SpotifyAuthModule.forRoot(),
-
   ],
   exports: [ SpotifyAuthModule],
   providers: [

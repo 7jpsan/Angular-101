@@ -12,10 +12,11 @@ export class SpotifyAuthComponent implements OnInit {
   constructor(private router: Router, private loginSvc: LoginService) { }
 
   ngOnInit() {
+    console.log(this.loginSvc);
     if (this.loginSvc.isLoggedIn){
-      this.router.navigate(['home']);
+      this.router.navigate(['/home']);
     }else{
-      this.router.navigate([''])
+      this.router.navigate(['/'])
     }
     
   }
