@@ -1,18 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
-
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SharedModule } from './shared/shared.module';
+import { PublicModule } from './public/public.module';
+import { HomeModule } from './home/home.module';
 
+import { CookieService } from 'ngx-cookie-service';
+import { LoginGuard } from './login.guard';
+import { ProfileComponent } from './profile/profile.component';
+import { NavbarModule } from './navbar/navbar.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ProfileComponent
   ],
   imports: [
-    BrowserModule
+    HttpClientModule,
+    BrowserModule,
+    NavbarModule,
+    SharedModule,
+    AppRoutingModule,
+    PublicModule,
+    HomeModule
   ],
-  providers: [],
+  providers: [
+    LoginGuard, 
+    CookieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

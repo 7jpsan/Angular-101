@@ -1,0 +1,43 @@
+app-navbar{
+    display: none;
+}
+
+:host:hover .submenu{
+    position: absolute;
+    top: 3rem;
+    left: 0;
+    display: inherit;
+} 
+ 
+li {
+    display: flex;
+    padding: 1rem;
+}
+
+li:focus{
+    outline: none;
+}
+
+li fa{
+    color: white;
+    margin-right: 0.5rem;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+
+li a:focus{
+    outline: none;
+}
+
+li:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color:#4CAF50;
+}
