@@ -1,4 +1,5 @@
-import { SpotifyEntity, SpotifyImage } from "../shared";
+import { SpotifyImage } from "./spotify-image";
+import { SpotifyEntity } from "./spotify-entity";
 import { Artist } from "./artist";
 
 export class SpotifyArtist extends SpotifyEntity<Artist>{

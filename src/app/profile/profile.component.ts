@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { User } from '../shared/user';
+import { User } from '../shared/entities';
 import { LoginService } from '../shared/spotify-auth';
 
 import 'rxjs/add/operator/take';
