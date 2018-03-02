@@ -44,7 +44,8 @@ export class LoginService {
       tap(response => console.log(`tried`, response)), // This allows you to do things without 
       catchError(this.handleError('getSelf', []))
     ).subscribe((user: SpotifyUser) => {
-      this.user = SpotifyUser.toUser(user);  // Static
+      //this.user = SpotifyUser.toUser(user);  // Static
+      this.user = new SpotifyUser(user).toDomainEntity();  // Static  
       this.setUserCookie(this.user);         // Update the cookie
       this.user$.next(this.user);            // Publish new user
     });

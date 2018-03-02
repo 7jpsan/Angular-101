@@ -1,2 +1,1 @@
-export * from './user';
-export * from './spotify-user';
+export * from './entities';
