@@ -30,6 +30,8 @@ fa{
     display: flex;
     justify-content: center;
     align-items: center;
+    border: #ddd thin solid;
+    box-shadow: 0px 0px 71px -6px #4CAF50;
 }
 
 .image-cropper img {
