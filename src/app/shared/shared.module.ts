@@ -9,8 +9,6 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
 @NgModule({
   imports: [
-    RouterModule,
-    CommonModule,
     SpotifyAuthModule.forRoot(),
   ],
   exports: [ SpotifyAuthModule],

@@ -5,10 +5,10 @@ import { PublicRoutingModule } from './public-routing.module';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PublicComponent } from './public.component';
 import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule,
     PublicRoutingModule
   ],
   declarations: [PageNotFoundComponent, PublicComponent, LoginComponent],

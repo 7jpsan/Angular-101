@@ -12,6 +12,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { LoginGuard } from './login.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarModule } from './navbar/navbar.module';
+import { Router } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,11 @@ import { NavbarModule } from './navbar/navbar.module';
   imports: [
     HttpClientModule,
     BrowserModule,
+    HomeModule,
     NavbarModule,
     SharedModule,
-    AppRoutingModule,
     PublicModule,
-    HomeModule
+    AppRoutingModule,
   ],
   providers: [
     LoginGuard, 
@@ -33,4 +34,8 @@ import { NavbarModule } from './navbar/navbar.module';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(router: Router){
+    console.log('Routes: ', JSON.stringify(router.config, undefined, 2));
+  }
+}

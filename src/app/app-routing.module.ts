@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, CanActivate } from '@angular/router';
 
 import { LoginGuard } from './login.guard';
 import { AuthGuard } from './shared/spotify-auth/auth.guard';
 import { SpotifyAuthComponent } from './shared/spotify-auth/spotify-auth/spotify-auth.component';
 import { ProfileComponent } from './profile';
+import { PublicModule } from './public/public.module';
+import { HomeModule } from './home/home.module';
+import { SpotifyAuthModule } from './shared/spotify-auth/spotify-auth.module';
+import { HomeComponent } from './home/home.component';
 
+// NO more lazy loading module bloody angular!
 const routes: Routes = [
   {
     path: '',
@@ -17,14 +22,9 @@ const routes: Routes = [
     component: SpotifyAuthComponent
   },
   {
-    path: 'public',
-    loadChildren: 'app/public/public.module#PublicModule'
-  },
-  {
     path: 'home',
-    canLoad: [ LoginGuard ],
-    //canActivateChild: [ LoginGuard ],
-    loadChildren: 'app/home/home.module#HomeModule' 
+    canActivate: [LoginGuard],
+    component: HomeComponent
   },
   {
     path: 'profile',
@@ -37,13 +37,13 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: 'app/public/public.module#PublicModule'
+    redirectTo: 'not-found'
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    enableTracing: false,
+    enableTracing: true,
     useHash: false
   })],
   exports: [RouterModule]

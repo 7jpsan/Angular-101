@@ -5,18 +5,27 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PublicComponent } from './public.component';
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: 'public',
     component: PublicComponent,
     children: [
-      { path: '',
-        children: [
-          { path: 'not-found', component: PageNotFoundComponent },
-          { path: '**', component: PageNotFoundComponent }
-        ]
+      {
+        path: '',
+        redirectTo: 'not-found',
+        pathMatch: 'full'
+      },
+      {
+        path: '**',
+        redirectTo: 'not-found',
+        pathMatch: 'full'
       }
     ]
-  }
+  },
+  {
+    path: 'not-found',
+    component: PageNotFoundComponent
+  },
+  // { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({

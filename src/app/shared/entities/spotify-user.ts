@@ -12,19 +12,19 @@ export class SpotifyUser extends SpotifyEntity<User> {
 
   public constructor(user: SpotifyUser){
     super(user);
-    this.images = user.images.map((x) => new SpotifyImage(x));
+    this.images = !!user.images ? user.images.map((x) => new SpotifyImage(x)) : [];
   }
 
   public toDomainEntity(): User{
     
     const user = new User();
     
-    user.isLoggedIn = true;
+    //user.isLoggedIn = true;
     user.name = this.display_name || this.id || this.email;
     user.birthday = this.birthdate;
     user.email = this.email;
     user.product = this.product;
-    user.profilePic = this.images ? this.images[0].toDomainEntity() : null;
+    user.profilePic = this.images.length > 0 ? this.images[0].toDomainEntity() : null;
     user.apiRef = this.href;
 
     return user;

@@ -14,7 +14,6 @@ import { MenuHoverDirective } from './directives/menu-hover.directive';
 
 @NgModule({
   imports: [
-    CommonModule,
     RouterModule,
     SharedModule,
     BrowserAnimationsModule,

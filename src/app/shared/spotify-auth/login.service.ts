@@ -23,6 +23,7 @@ export class LoginService {
     private router: Router)
  {
     this.user = this.getUserFromCookie();
+    this.user.setLoggedIn(!!this.user.name);
     this.user$ = new BehaviorSubject<User>(this.user);
   }
 
@@ -31,7 +32,7 @@ export class LoginService {
   }
 
   public logout() {
-    this.user = new User({ isLoggedIn: false, token: '' } as User);
+    this.user = new SpotifyUser({} as SpotifyUser).toDomainEntity();// new User({ isLoggedIn: false, token: '' } as User);
     this.cookieSvc.delete('spotify-user');
     window.location.href = '/';
   }
@@ -39,14 +40,14 @@ export class LoginService {
   public update(): boolean {
 
     //const header: HttpHeaders = new HttpHeaders().append('Authorization', `Bearer ${this.user.token}`);
-    this.user.isLoggedIn = true;
     this.http.get('https://api.spotify.com/v1/me'/*,  { headers: header } */).pipe(
       tap(response => console.log(`tried`, response)), // This allows you to do things without 
       catchError(this.handleError('getSelf', []))
     ).subscribe((user: SpotifyUser) => {
       //this.user = SpotifyUser.toUser(user);  // Static
       this.user = new SpotifyUser(user).toDomainEntity();  // Static  
-      this.setUserCookie(this.user);         // Update the cookie
+      this.user.setLoggedIn(true);
+      this.setUserCookie(user);         // Update the cookie
       this.user$.next(this.user);            // Publish new user
     });
 
@@ -69,12 +70,13 @@ export class LoginService {
     return this.cookieSvc.check('spotify-user');
   }
 
-  private setUserCookie(spotifyUser: User) {
+  private setUserCookie(spotifyUser: SpotifyUser) {
     this.cookieSvc.set('spotify-user', JSON.stringify(spotifyUser));
   }
 
   private getUserFromCookie(): User {
-    return new User(JSON.parse(this.cookieSvc.get('spotify-user') || '{}'));
+    const x = JSON.parse(this.cookieSvc.get('spotify-user') || '{}') as SpotifyUser;
+    return new SpotifyUser(x).toDomainEntity();
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
@@ -87,8 +89,8 @@ export class LoginService {
       console.log(`${operation} failed: ${error.message}`);
 
       // Let the app keep running by returning an empty result.
-      this.user.isLoggedIn = false;
       this.user = new User({ isLoggedIn: false, token: '' } as User);
+      this.user.setLoggedIn(false);
       this.cookieSvc.delete('spotify-user');
       return of(result as T);
 

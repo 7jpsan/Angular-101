@@ -17,7 +17,7 @@ export class User extends DomainEntity{
         return this.loggedIn;
     }
 
-    public set isLoggedIn(value: boolean){
+    public setLoggedIn(value: boolean){
         this.loggedIn = value;
     }
 
