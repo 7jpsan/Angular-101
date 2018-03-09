@@ -14,7 +14,7 @@ export class SpotifyAlbum extends SpotifyEntity<Album> {
 
     public constructor(album: SpotifyAlbum){
         super(album);
-        this.images = album.images.map((x) => new SpotifyImage(x));
+        this.images = !!album.images ? album.images.map((x) => new SpotifyImage(x)) : [];
         this.artists = album.artists.map((x) => new SpotifyArtist(x));
     }
     
@@ -25,6 +25,7 @@ export class SpotifyAlbum extends SpotifyEntity<Album> {
         album.images = this.images.map((x) => x.toDomainEntity());
         album.id = this.id;
         album.type = this.album_type;
+        album.name = this.name;
         return album;
     }
 }

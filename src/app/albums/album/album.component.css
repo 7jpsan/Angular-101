@@ -1,0 +1,47 @@
+:host{
+    width: 100px;
+    height: 100px;
+}
+
+.some-wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    /* overflow: hidden; */
+}
+
+.album{
+    text-align: center;
+    flex-direction: column;
+    
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.album h2{
+    padding: 1px;
+    width: 200px;
+    position: absolute;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    background-color: #4baf4f;
+}
+
+.some-wrapper label{
+    padding: 5px;
+    width: 100%;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    background-color: #4baf4f;
+    font-weight: 600;
+    color: white;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

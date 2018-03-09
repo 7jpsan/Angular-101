@@ -9,12 +9,20 @@ import { PublicModule } from './public/public.module';
 import { HomeModule } from './home/home.module';
 import { SpotifyAuthModule } from './shared/spotify-auth/spotify-auth.module';
 import { HomeComponent } from './home/home.component';
+import { AlbumComponent } from './albums/album/album.component';
+import { AlbumsModule } from './albums/albums.module';
+import { AlbumsRoutingModule } from './albums/albums-routing.module';
 
 // NO more lazy loading module bloody angular!
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home', pathMatch: 'full'
+    redirectTo: 'home', 
+    pathMatch: 'full'
+  },
+  {
+    path: 'albums',
+    loadChildren: () => AlbumsModule
   },
   {
     path: 'authorized',

@@ -9,7 +9,7 @@ export class User extends DomainEntity{
     public email: string = '';
     public product: string = '';
     public profilePic: Image = {} as Image;
-    public apiRef: string;
+    public apiRef: string = '';
 
     private loggedIn: boolean = false;
 

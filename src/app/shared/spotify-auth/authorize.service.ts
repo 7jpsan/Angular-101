@@ -30,6 +30,11 @@ export class AuthorizeService {
     window.location.href = this.buildAuthUrl();
   }
 
+  public updateToken(token: string): boolean{
+    this.token = token;
+    return !!this.token;
+  }
+
   public setAuthToken(spotifyResponse: SpotifyAuthResponse): boolean{
     if (!!spotifyResponse && !!spotifyResponse.access_token) {
       this.token = spotifyResponse.access_token;
@@ -37,6 +42,10 @@ export class AuthorizeService {
       this.token = null;
     }
     return !!this.token
+  }
+
+  public get oAuthToken(): string{
+    return this.token;
   }
 
   public get authHeader(): {[name: string]: string}{

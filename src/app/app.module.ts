@@ -13,6 +13,7 @@ import { LoginGuard } from './login.guard';
 import { ProfileComponent } from './profile/profile.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { Router } from '@angular/router';
+import { AlbumsModule } from './albums/albums.module';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { Router } from '@angular/router';
     NavbarModule,
     SharedModule,
     PublicModule,
+    AlbumsModule,
     AppRoutingModule,
   ],
   providers: [

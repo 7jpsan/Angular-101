@@ -1,0 +1,9 @@
+ul.album-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul li{
+    margin: 10px;
+}

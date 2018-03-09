@@ -9,6 +9,7 @@ export class SpotifyUser extends SpotifyEntity<User> {
   birthdate: string;
   product: string;
   images: SpotifyImage[];
+  token: string;
 
   public constructor(user: SpotifyUser){
     super(user);
@@ -26,6 +27,7 @@ export class SpotifyUser extends SpotifyEntity<User> {
     user.product = this.product;
     user.profilePic = this.images.length > 0 ? this.images[0].toDomainEntity() : null;
     user.apiRef = this.href;
+    user.token = this.token;
 
     return user;
   }

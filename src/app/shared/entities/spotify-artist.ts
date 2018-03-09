@@ -9,9 +9,9 @@ export class SpotifyArtist extends SpotifyEntity<Artist>{
     type: string;
     images: SpotifyImage[];
 
-    public constructor(obj: SpotifyArtist){
-        super(obj);
-        this.images = obj.images.map((img) => new SpotifyImage(img));
+    public constructor(artist: SpotifyArtist){
+        super(artist);
+        this.images =  !!artist.images ? artist.images.map((x) => new SpotifyImage(x)) : [];
     }
 
     public toDomainEntity(): Artist{

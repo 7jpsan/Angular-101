@@ -45,6 +45,7 @@ export class LoginService {
       catchError(this.handleError('getSelf', []))
     ).subscribe((user: SpotifyUser) => {
       //this.user = SpotifyUser.toUser(user);  // Static
+      user.token = this.authServ.oAuthToken;
       this.user = new SpotifyUser(user).toDomainEntity();  // Static  
       this.user.setLoggedIn(true);
       this.setUserCookie(user);         // Update the cookie
@@ -76,7 +77,9 @@ export class LoginService {
 
   private getUserFromCookie(): User {
     const x = JSON.parse(this.cookieSvc.get('spotify-user') || '{}') as SpotifyUser;
-    return new SpotifyUser(x).toDomainEntity();
+    const user = new SpotifyUser(x).toDomainEntity();
+    this.authServ.updateToken(user.token);
+    return user;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
