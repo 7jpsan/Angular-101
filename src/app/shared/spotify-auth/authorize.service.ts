@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, map, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs/observable';
-import { of } from 'rxjs/observable/of';
 
 import { SpotifyAuthRequestParams } from './interfaces';
 import { SpotifyAuthResponse } from './interfaces';
@@ -16,7 +13,7 @@ export class AuthorizeService {
     redirect_uri: "http://localhost:4200/authorized",  // My URL
     state: "somerandomstuff",
     show_dialog: true,
-    scope: 'user-read-email user-read-birthdate user-read-private'
+    scope: 'user-read-email user-read-birthdate user-read-private user-library-read'
 
   } as SpotifyAuthRequestParams;
 

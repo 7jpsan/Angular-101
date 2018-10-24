@@ -1,9 +1,11 @@
+
+import {take} from 'rxjs/operators';
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../shared/entities';
 import { LoginService } from '../shared/spotify-auth';
 
-import 'rxjs/add/operator/take';
+
 
 @Component({
   selector: 'app-profile',
@@ -17,7 +19,7 @@ export class ProfileComponent implements OnInit {
   constructor(private loginSvc: LoginService) { }
 
   public ngOnInit() {
-    this.loginSvc.getUserStream().take(1).subscribe((u: User) => {
+    this.loginSvc.getUserStream().pipe(take(1)).subscribe((u: User) => {
       this.user = u
     });
   }

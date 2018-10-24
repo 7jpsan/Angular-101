@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import 'rxjs/add/observable/of'
+import { Observable ,  BehaviorSubject } from 'rxjs';
+
 
 import { NavItem } from './nav-item.i';
 import { LoginService } from '../../shared/spotify-auth';
@@ -22,7 +21,17 @@ export class NavigationItemsService {
       title: "Albums",
       icon: "music",
       route: "albums",
-      loginRequired: true
+      loginRequired: true,
+      children: [
+        {
+          title: "Latest",
+          route: "albums/latest"
+        },
+      {
+        title: "Saved",
+        route: "albums/user"
+      },
+    ]
     } as NavItem,
     {
       title: "Playlists",

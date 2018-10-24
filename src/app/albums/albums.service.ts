@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { tap, catchError, switchMap } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/observable';
-import { of } from 'rxjs/observable/of';
+import { tap, catchError, switchMap} from 'rxjs/operators';
+import { BehaviorSubject, of, Observable} from 'rxjs';
 
 
 import { Album } from '../shared';
@@ -25,16 +23,38 @@ export class AlbumsService {
       
     // ).subscribe((spAlbums: SpotifyAlbum[]) => {
     //   const albums = spAlbums.map( a =>new SpotifyAlbum(a).toDomainEntity());
-    //   this.albums$.next(albums);            // Publish new user
+    //   this.albums$.next(albums);            // Publish new album
     // });
 
-    return this.http.get("https://api.spotify.com/v1/browse/new-releases").pipe(switchMap((x:{ albums: {items: SpotifyAlbum[]}}) => {
+    return this.http.get(`https://api.spotify.com/v1/browse/new-releases`).pipe(switchMap((x:{ albums: {items: SpotifyAlbum[]}}) => {
       // console.log(x.albums.items);
       return of(x.albums.items.map( a =>new SpotifyAlbum(a).toDomainEntity()));
-    }))
-
+    }));
 
     // return this.albums$.asObservable();
+  }
+
+  public getAlbum(id: string): Observable<Album>{
+    return this.http.get(`https://api.spotify.com/v1/albums/${id}`).pipe(
+      switchMap((album: SpotifyAlbum) => {
+        return of( new SpotifyAlbum(album).toDomainEntity())
+      })
+    );
+  }
+
+  public getArtistAlbums(artistId: string): Observable<Album[]>{
+    return this.http.get(`https://api.spotify.com/v1/artists/${artistId}/albums`).pipe(switchMap((x:{items: SpotifyAlbum[]}) => {
+      // console.log(x.albums.items);
+      // debugger
+      return of(x.items.map( a =>new SpotifyAlbum(a).toDomainEntity()));
+    }));
+  }
+
+  public getUsersAlbums(): Observable<Album[]>{
+    return this.http.get(`https://api.spotify.com/v1/me/albums`).pipe(switchMap((x:{ items: [ {album: SpotifyAlbum }] } ) => {
+      // console.log(x.albums.items);
+      return of(x.items.map( a =>new SpotifyAlbum(a.album).toDomainEntity()));
+    }));
   }
 
   public getAlbums(): Observable<Album[]>{

@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User, SpotifyUser } from '../';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable ,  BehaviorSubject ,  of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, tap } from 'rxjs/operators';
-import { of } from 'rxjs/observable/of';
 
 import { AuthorizeService } from './authorize.service';
 import { Router } from '@angular/router';

@@ -3,13 +3,40 @@ import { Routes, RouterModule, CanActivate, Route } from '@angular/router';
 import { LoginGuard } from '../login.guard';
 import { AlbumComponent } from './album/album.component';
 import { AlbumListComponent } from './album-list/album-list.component';
+import { AlbumDetailsComponent } from './album-details/album-details.component';
+import { AlbumResolver } from './album-resolver';
 
 
 const routes: Routes = [
   { 
     path: '' ,
     canActivate: [LoginGuard],
-    component: AlbumListComponent
+    children: [
+      {
+        path: '',
+        redirectTo: 'latest',
+        pathMatch: 'full'
+      },
+      {
+        path: 'latest',
+        component: AlbumListComponent
+      },
+      {
+        path: 'user',
+        component: AlbumListComponent
+      },
+      {
+        path: 'album/:id',
+        component: AlbumDetailsComponent,
+        resolve: {
+          album: AlbumResolver
+        }
+      },
+      {
+        path: 'artist/:id/albums',
+        component: AlbumListComponent
+      }
+    ]
   }
 ];
 

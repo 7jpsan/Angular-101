@@ -9,6 +9,7 @@
     align-items: center;
     width: 200px;
     height: 200px;
+    cursor: pointer;
     /* overflow: hidden; */
 }
 
@@ -38,6 +39,7 @@
     background-color: #4baf4f;
     font-weight: 600;
     color: white;
+    cursor: pointer;
 }
 
 img{

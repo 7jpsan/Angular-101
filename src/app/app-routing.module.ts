@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { AlbumComponent } from './albums/album/album.component';
 import { AlbumsModule } from './albums/albums.module';
 import { AlbumsRoutingModule } from './albums/albums-routing.module';
+import { AlbumDetailsComponent } from './albums/album-details/album-details.component';
+import { AlbumResolver } from './albums/album-resolver';
 
 // NO more lazy loading module bloody angular!
 const routes: Routes = [

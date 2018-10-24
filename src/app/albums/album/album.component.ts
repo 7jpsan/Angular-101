@@ -22,6 +22,7 @@ export class AlbumComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.album);
     //console.log(JSON.stringify(this.album), this.album.id);
   }
 

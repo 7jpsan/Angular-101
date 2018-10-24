@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { Router } from '@angular/router';
 import { AlbumsModule } from './albums/albums.module';
+import { AlbumResolver } from './albums/album-resolver';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { AlbumsModule } from './albums/albums.module';
   ],
   providers: [
     LoginGuard, 
-    CookieService
+    CookieService,
+    //AlbumResolver
+  ],
+  exports: [
+    AlbumsModule
   ],
   bootstrap: [AppComponent]
 })

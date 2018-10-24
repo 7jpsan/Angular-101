@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Route, CanLoad, ActivatedRouteSnapshot, ActivatedRoute, RouterStateSnapshot, CanActivateChild } from '@angular/router';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { SpotifyAuthResponse } from './interfaces';
 import { LoginService } from './login.service';

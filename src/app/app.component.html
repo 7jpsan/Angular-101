@@ -1,5 +1,5 @@
 <app-navbar [navItems]="navService.getNavigationItemsStream() | async"></app-navbar>
 <app-login *ngIf="!user.name" class="login"></app-login>
 <router-outlet></router-outlet>
-
+<router-outlet name="popup"></router-outlet>
 
