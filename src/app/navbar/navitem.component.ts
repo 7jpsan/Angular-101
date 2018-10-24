@@ -32,7 +32,7 @@ import {
 export class NavitemComponent implements OnInit {
 
   @Input()
-  private navItem: NavItem;
+  public navItem: NavItem;
 
   constructor() { }
 

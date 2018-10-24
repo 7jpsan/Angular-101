@@ -24,7 +24,8 @@ const routes: Routes = [
   },
   {
     path: 'albums',
-    loadChildren: () => AlbumsModule
+    loadChildren: './albums/albums.module#AlbumsModule'
+    // loadChildren: () => AlbumsModule
   },
   {
     path: 'authorized',

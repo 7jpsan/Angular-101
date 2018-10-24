@@ -10,7 +10,7 @@ import { Album } from '../../shared';
 export class AlbumDetailsComponent implements OnInit {
 
 
-  private album: Album;
+  public album: Album;
 
   constructor( private route: ActivatedRoute,
     private router: Router) { }

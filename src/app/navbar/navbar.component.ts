@@ -11,7 +11,7 @@ import { NavItem } from './services';
 export class NavbarComponent implements OnInit {
 
   @Input()
-  private navItems: NavItem[];
+  public navItems: NavItem[];
   
   constructor() { }
 
