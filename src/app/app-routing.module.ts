@@ -18,11 +18,6 @@ import { AlbumResolver } from './albums/album-resolver';
 // NO more lazy loading module bloody angular!
 const routes: Routes = [
   {
-    path: '',
-    redirectTo: 'home', 
-    pathMatch: 'full'
-  },
-  {
     path: 'albums',
     loadChildren: './albums/albums.module#AlbumsModule'
     // loadChildren: () => AlbumsModule
@@ -47,9 +42,14 @@ const routes: Routes = [
     redirectTo: 'home'
   },
   {
+    path: '',
+    redirectTo: 'home', 
+    pathMatch: 'full'
+  },
+  {
     path: '**',
     redirectTo: 'not-found'
-  }
+  },
 ];
 
 @NgModule({

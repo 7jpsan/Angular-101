@@ -28,7 +28,7 @@ import { AlbumResolver } from './albums/album-resolver';
     NavbarModule,
     SharedModule,
     PublicModule,
-    AlbumsModule,
+    // AlbumsModule,
     AppRoutingModule,
   ],
   providers: [
@@ -37,7 +37,7 @@ import { AlbumResolver } from './albums/album-resolver';
     //AlbumResolver
   ],
   exports: [
-    AlbumsModule
+    // AlbumsModule
   ],
   bootstrap: [AppComponent]
 })
