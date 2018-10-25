@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivate, Route } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { LoginGuard } from '../login.guard';
-import { AlbumComponent } from './album/album.component';
 import { AlbumListComponent } from './album-list/album-list.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
 import { AlbumResolver } from './album-resolver';
